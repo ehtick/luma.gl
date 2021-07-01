@@ -278,12 +278,10 @@ export function blit(source, target, options = {}) {
     mask = 0
   } = options;
 
-  const {framebuffer: srcFramebuffer, deleteFramebuffer: deleteSrcFramebuffer} = getFramebuffer(
-    source
-  );
-  const {framebuffer: dstFramebuffer, deleteFramebuffer: deleteDstFramebuffer} = getFramebuffer(
-    target
-  );
+  const {framebuffer: srcFramebuffer, deleteFramebuffer: deleteSrcFramebuffer} =
+    getFramebuffer(source);
+  const {framebuffer: dstFramebuffer, deleteFramebuffer: deleteDstFramebuffer} =
+    getFramebuffer(target);
 
   assert(srcFramebuffer);
   assert(dstFramebuffer);

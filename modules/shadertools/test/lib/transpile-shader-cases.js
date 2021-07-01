@@ -30,7 +30,7 @@ void main(void) {
 `,
 
     // transpiled 300 version should have correct `texure()` syntax
-    GLSL_300_transpiled: `\
+    GLSL_300_TRANSPILED: `\
 #version 300 es
 
 in vec4 positions;
@@ -103,7 +103,7 @@ void main(void) {
 `,
 
     // transpiled 300 version should have correct `texure()` syntax
-    GLSL_300_transpiled: `\
+    GLSL_300_TRANSPILED: `\
 #version 300 es
 
 precision highp float;
