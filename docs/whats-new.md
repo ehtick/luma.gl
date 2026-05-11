@@ -6,6 +6,12 @@ _This page contains news for recent luma.gl releases. For older releases (throug
 
 Target Release Date: Q3, 2026
 
+**New Modules**
+
+- **`@luma.gl/arrow`** - New module for working with binary columnar data on the GPU.
+- **`@luma.gl/gpgpu`** - New module for lazy `GPUTable` operations with CPU/WebGL/WebGPU backends.
+
+
 **@luma.gl/arrow** NEW MODULE
 
 - **Arrow shader layouts** - `getArrowBufferLayout()` maps Arrow scalar and `FixedSizeList` columns to shader attribute formats from a shader-first layout, including direct `arrow.Vector` sources and Arrow table path mappings.
@@ -13,15 +19,33 @@ Target Release Date: Q3, 2026
 - **Arrow table buffer planning** - New `TableBufferPlanner` API builds deterministic GPU buffer allocation plans for table columns, including interleaved fallback groups and WebGPU storage-buffer planning output.
 - **[Arrow Instancing Example](/examples/showcase/arrow-instancing)** - New showcase example renders instanced cubes from an Apache Arrow table.
 
+**@luma.gl/gpgpu** NEW MODULE
+
+- **`GPUTable`** lazy GPU operations with CPU/WebGL/WebGPU backends.
+
 **@luma.gl/engine**
 
 - **[`DynamicBuffer`](/docs/api-reference/engine/dynamic-buffer)** - New engine-level wrapper for resizable buffers. `Model` supports dynamic buffers for attributes, index buffers, and shader bindings, and `Material` supports dynamic buffer bindings with cache invalidation when the backing buffer changes.
+- **`Animator`** - New animation helper for timeline-driven animation updates.
+- **Shader pass pipelines** - `ShaderPassRenderer` now supports multi-pass effects such as bloom and depth of field.
 - **Geometry buffer layouts** - `Geometry` now always has a populated `bufferLayout`.
 - **Semantic attribute normalization** - `POSITION`, `NORMAL`, `TEXCOORD_0`, and `COLOR_0` are normalized to shader attribute names.
 - **Interleaved CPU geometry** - `makeInterleavedGeometry()` packs attributes into one CPU-side vertex buffer.
 - **Interleaved primitive uploads** - Built-in primitives upload as one vertex buffer plus an optional index buffer.
 - **Index-based color picking** - New `indexColorPicking` module encodes integer object indexes into color-picking output without requiring application-provided picking color attributes.
 - **Model layout updates** - `Model.setBufferLayout()` is now idempotent, and explicit WGSL attribute layouts are merged with inferred bindings to support shader metadata without manually declaring uniform bindings.
+
+**@luma.gl/shadertools**
+
+- **`ShaderPassPipeline`** - New shader-pass pipeline type for structured multi-pass postprocessing.
+- **`waterMaterial`** - New water material shader module with GLSL and WGSL shaders.
+
+**@luma.gl/effects**
+
+- **`bloom`** - New bloom postprocessing effect and shader-pass pipeline.
+- **`dof`** - New depth-of-field postprocessing effect and shader-pass pipeline.
+- **`gaussianblur`** - New gaussian blur postprocessing effect.
+- **`persistenceEffect`** - Moved into `@luma.gl/effects` as a first-class postprocessing effect.
 
 ## Version 9.3
 
